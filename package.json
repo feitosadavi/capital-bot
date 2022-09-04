@@ -1,0 +1,20 @@
+{
+  "name": "capital-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/main"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^16.2.0",
+    "puppeteer-cluster": "^0.23.0",
+    "puppeteer-firefox": "^0.5.1",
+    "venom-bot": "2.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
