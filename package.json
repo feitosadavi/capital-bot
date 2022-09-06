@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/main"
+    "dev": "google-chrome --remote-debugging-port=9222 & nodemon src/bots/wpp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^16.2.0",
-    "puppeteer-cluster": "^0.23.0",
-    "puppeteer-firefox": "^0.5.1",
-    "venom-bot": "2.2.3"
+    "axios": "^0.27.2",
+    "node-telegram-bot-api": "^0.59.0",
+    "puppeteer-core": "^17.1.0",
+    "venom-bot": "https://github.com/orkestral/venom/releases/download/nightly/venom-bot-nightly.tgz"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
