@@ -1,4 +1,5 @@
 const Bot = require('./bot');
+const env = require('../../.env');
 
 class LoginBot {
   constructor(browser, page, url) {
@@ -27,8 +28,8 @@ class LoginBot {
 
   async fillFields () {
     console.log({ url: this.page.url() })
-    await this.page.type("input[type='email']", 'resas21003@lurenwu.com')
-    await this.page.type("input[type='password']", '40028922dD$')
+    await this.page.type("input[type='email']", env.email)
+    await this.page.type("input[type='password']", env.password)
   }
 
   // async isLoggedIn () {
