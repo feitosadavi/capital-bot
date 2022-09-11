@@ -6,8 +6,7 @@
   "scripts": {
     "chrome": "google-chrome --no-sandbox --headless --remote-debugging-port=9222",
     "dev": "npm run chrome & node src/bots/auth & nodemon src/bots/wpp",
-    "prod": "npm run chrome && node src/bots/auth && node src/bots/wpp",
-    "start": "ls & sh ./start.sh"
+    "start": "npm run chrome && node src/bots/auth && node src/bots/wpp"
   },
   "author": "",
   "license": "ISC",

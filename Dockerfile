@@ -64,4 +64,4 @@ COPY package.json ./
 RUN yarn install
 COPY . ./
 
-CMD [ "npm", "run", "prod" ]
+CMD [ "npm", "run", "start" ]
