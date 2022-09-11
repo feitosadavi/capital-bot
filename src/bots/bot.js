@@ -23,7 +23,7 @@ class Bot {
       this.browser = await puppeteer.connect({
         browserWSEndpoint: res.data.webSocketDebuggerUrl
       })
-
+      console.log({ url: res.data.webSocketDebuggerUrl });
       this.page = await this.browser.newPage()
       callback.bind(this)()
     }).catch((e) => console.log('errou', e))

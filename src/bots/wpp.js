@@ -25,7 +25,6 @@ telegramBot.on('message', (msg) => {
 
         const postsGetterBot = new PostsGetterBot(olxBot.browser, olxBot.page)
 
-        console.log({ olxBot });
 
         await olxBot.search(query)
 

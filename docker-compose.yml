@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  chrome:
+    container_name: chrome_container
+    image: browserless/chrome
+
+  bot:
+    image: node
+    working_dir: /home/node/bot
+    volumes:
+      - .:/home/node/bot
+    container_name: bot_container
+    depends_on:
+      - chrome
+    entrypoint: "/bin/bash"
+    command: "-c \"if [ ! -d \"node_modules\" ]; then npm i; fi; npm run prod\""
