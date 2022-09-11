@@ -1,17 +1,17 @@
 'use strict'
 
 const fetch = require('axios')
-const puppeteer = require('puppeteer-core')
-const { spawn } = require('child_process');
-// const wsChromeEndpointurl = 'ws://127.0.0.1:9222/devtools/browser/32914592-9865-42c6-9102-0b5e74838ef5'
+const puppeteer = require('puppeteer-extra')
 
-// const PORT = Math.floor(1000 + Math.random() * 9000)
+// Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin())
+
+// Add adblocker plugin to block all ads and trackers (saves bandwidth)
+const AdblockerPlugin = require('puppeteer-extra-plugin-adblocker')
+puppeteer.use(AdblockerPlugin({ blockTrackers: true }))
+
 const PORT = 9222
-
-const openChrome = () => new Promise(res => {
-  spawn('google-chrome', [`--remote-debugging-port=${PORT}`])
-  res(true)
-})
 
 class Bot {
   isBusy = false
