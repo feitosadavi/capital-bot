@@ -18,9 +18,15 @@ class Messenger {
 
   async clickChatBtn (postUrl) {
     await this.page.goto(postUrl, { waitUntil: 'domcontentloaded' })
-
-    await this.page.waitForSelector('div.sc-1wfs6j-0.jacUhS')
-    await this.page.click('div.sc-1wfs6j-0.jacUhS')
+    try {
+      await this.page.waitForSelector('button#cookie-notice-ok-button')
+      await this.page.click('button#cookie-notice-ok-button')
+      await this.page.waitForSelector('div.sc-1wfs6j-0.jacUhS')
+      await this.page.click('div.sc-1wfs6j-0.jacUhS')
+    } catch (error) {
+      await this.page.waitForSelector('div.sc-1wfs6j-0.jacUhS')
+      await this.page.click('div.sc-1wfs6j-0.jacUhS')
+    }
   }
 
   async hasSentPreviousMessages () {

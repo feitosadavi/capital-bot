@@ -6,19 +6,18 @@
   "scripts": {
     "chrome": "google-chrome --remote-debugging-port=9222",
     "dev": "npm run chrome & nodemon src/bots/wpp",
-    "start": "npm run chrome & node src/bots/wpp"
+    "prod": "npm run chrome & node src/bots/wpp",
+    "start": "sh start.sh"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "node-telegram-bot-api": "^0.59.0",
-    "puppeteer-core": "^17.1.0",
     "puppeteer-extra": "^3.3.4",
     "puppeteer-extra-plugin-adblocker": "^2.13.5",
     "puppeteer-extra-plugin-block-resources": "^2.4.2",
-    "puppeteer-extra-plugin-stealth": "^2.11.1",
-    "venom-bot": "https://github.com/orkestral/venom/releases/download/nightly/venom-bot-nightly.tgz"
+    "puppeteer-extra-plugin-stealth": "^2.11.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
