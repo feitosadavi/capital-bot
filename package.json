@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "chrome": "google-chrome --no-sandbox --headless --remote-debugging-port=9222",
+    "chrome": "killall google-chrome-stable & google-chrome --no-sandbox --headless --remote-debugging-port=9222",
     "dev": "google-chrome --remote-debugging-port=9222 & nodemon src/bots/wpp ",
     "start": "npm run chrome & node src/bots/auth & node src/bots/wpp"
   },
