@@ -1,3 +1,5 @@
+const MSG = 'Não perca mais tempo e não corra risco com fraudes, nós da Capital Veículos vendemos seu carro com rapidez e segurança em 10 dias, ou compramos! E o melhor, você não precisa deixar seu carro na loja para vender. Temos uma equipe especializada e os maiores canais em venda de carros do mercado. Não perca mais tempo, entre em contato agora mesmo!'
+
 class Messenger {
   constructor(browser, page) {
     this.browser = browser
@@ -10,7 +12,7 @@ class Messenger {
     console.log({ hasSentPreviousMessages });
     if (!hasSentPreviousMessages) {
       await this.typeMessage()
-      const sendBtn = await this.page.$('div.sc-hzDEsm.sc-dOkuiw.ctPZrs')
+      const sendBtn = await this.page.$('div.sc-hzDEsm.sc-hZeNU.enjuqn')
       await sendBtn?.click()
     }
 
@@ -21,6 +23,7 @@ class Messenger {
     try {
       await this.page.waitForSelector('button#cookie-notice-ok-button')
       await this.page.click('button#cookie-notice-ok-button')
+
       await this.page.waitForSelector('div.sc-1wfs6j-0.jacUhS')
       await this.page.click('div.sc-1wfs6j-0.jacUhS')
     } catch (error) {
@@ -31,11 +34,11 @@ class Messenger {
 
   async hasSentPreviousMessages () {
     try {
-      await this.page.waitForSelector('div.sc-hzDEsm.eLnGKm.sc-RWGNv.dFRSXj', { timeout: 4000 })
-      const previousMsg = await this.page.$('div.sc-hzDEsm.eLnGKm.sc-RWGNv.dFRSXj')
-      console.log({ previousMsg });
-      return !!previousMsg
+      await this.page.waitForSelector(`.sc-hzDEsm.eLnGKm.sc-dTsoBL.gYWGYI`, { timeout: 3000 })
+      const previousMsg = await this.page.$('.sc-hzDEsm.eLnGKm.sc-dTsoBL.gYWGYI');
+      return previousMsg !== null
     } catch (error) {
+      console.log(error);
       // if (error instanceof TimeoutError) {
       // se não tiver mensagens anteriores, retorna false
       return false
@@ -46,7 +49,7 @@ class Messenger {
   async typeMessage () {
     try {
       await this.page.waitForSelector('textarea')
-      await this.page.type('textarea', 'Não perca mais tempo e não corra risco com fraudes, nós da Capital Veículos vendemos seu carro com rapidez e segurança em 10 dias, ou compramos! E o melhor, você não precisa deixar seu carro na loja para vender. Temos uma equipe especializada e os maiores canais em venda de carros do mercado. Não perca mais tempo, entre em contato agora mesmo!')
+      await this.page.type('textarea', MSG)
     } catch (error) {
       console.log(error);
     }

@@ -18,6 +18,7 @@ telegramBot.on('message', (msg) => {
     if (olxBot.getIsBusy()) {
       telegramBot.sendMessage(msg.chat.id, 'Estou ocupado! Aguarde.')
     } else {
+      telegramBot.sendMessage(msg.chat.id, 'Pesquisa em execução! Aguarde.')
       olxBot.init(async () => {
         olxBot.start()
 
@@ -47,6 +48,8 @@ telegramBot.on('message', (msg) => {
     }
   } catch (error) {
     console.log(error);
+    telegramBot.sendMessage(msg.chat.id, String(error))
+    telegramBot.sendMessage(msg.chat.id, 'Houve um erro durante a pesquisa, tente novamente!')
   }
 
 });
