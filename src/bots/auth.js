@@ -41,12 +41,6 @@ class LoginBot {
   // }
 }
 
-const bot = new Bot
-bot.init(async () => {
-  const auth = new LoginBot(bot.browser, bot.page, 'https://conta.olx.com.br/acesso/')
-  await auth.login()
-})
-
 
 // class LoginBot {
 //   constructor(browser, page, url) {
@@ -85,4 +79,4 @@ bot.init(async () => {
 
 // }
 
-// module.exports = LoginBot
+module.exports = LoginBot

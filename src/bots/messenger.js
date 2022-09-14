@@ -46,7 +46,7 @@ class Messenger {
   async typeMessage () {
     try {
       await this.page.waitForSelector('textarea')
-      await this.page.type('textarea', 'Não perca mais tempo e não corra risco com fraudes, nós da Capital Veículos vendemos seu carro com rapidez e segurança em 10 dias, ou compramos! E o melhor, você não precisa deixar seu carro na loja para vender. Temos uma equipe especializada e os maiores canais em venda de carros do mercado. Não perca mais tempo, entre em contato agora mesmo! U+1F600')
+      await this.page.type('textarea', 'Não perca mais tempo e não corra risco com fraudes, nós da Capital Veículos vendemos seu carro com rapidez e segurança em 10 dias, ou compramos! E o melhor, você não precisa deixar seu carro na loja para vender. Temos uma equipe especializada e os maiores canais em venda de carros do mercado. Não perca mais tempo, entre em contato agora mesmo!')
     } catch (error) {
       console.log(error);
     }

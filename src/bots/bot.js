@@ -11,6 +11,8 @@ puppeteer.use(StealthPlugin())
 const AdblockerPlugin = require('puppeteer-extra-plugin-adblocker')
 puppeteer.use(AdblockerPlugin({ blockTrackers: true }))
 
+const LoginBot = require('./auth');
+
 const PORT = 9222
 
 class Bot {
@@ -19,19 +21,18 @@ class Bot {
   async init (callback) {
     console.log({ PORT })
     fetch(`http://127.0.0.1:${PORT}/json/version`).then(async (res) => {
-      // console.log(res.data.webSocketDebuggerUrl)
       this.browser = await puppeteer.connect({
         browserWSEndpoint: res.data.webSocketDebuggerUrl
       })
       console.log({ url: res.data.webSocketDebuggerUrl });
       this.page = await this.browser.newPage()
+      await this.page.setCacheEnabled(false)
+      console.log('fazendo o login');
+      const auth = new LoginBot(this.browser, this.page, 'https://conta.olx.com.br/acesso/')
+      await auth.login()
+
       callback.bind(this)()
     }).catch((e) => console.log('errou', e))
-    // openChrome().then(_res => {
-    //   setTimeout(() => {
-
-    //   }, 500)
-    // })
   }
 
   async search (query) {
