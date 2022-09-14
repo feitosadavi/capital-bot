@@ -35,9 +35,9 @@ class Messenger {
 
   async hasSentPreviousMessages () {
     try {
-      await this.page.waitForSelector(`.sc-hzDEsm.eLnGKm.sc-dTsoBL.gYWGYI`, { timeout: 3000 })
+      await this.page.waitForSelector(`.sc-hzDEsm.eLnGKm.sc-dTsoBL.gYWGYI`, { timeout: 2000 })
       const previousMsg = await this.page.$('.sc-hzDEsm.eLnGKm.sc-dTsoBL.gYWGYI');
-      return previousMsg !== null
+      return true
     } catch (error) {
       console.log(error);
       // if (error instanceof TimeoutError) {
