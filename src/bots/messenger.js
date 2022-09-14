@@ -14,12 +14,13 @@ class Messenger {
       await this.typeMessage()
       const sendBtn = await this.page.$('div.sc-hzDEsm.sc-hZeNU.enjuqn')
       await sendBtn?.click()
+      console.log('MENSAGEM ENVIADA!');
     }
 
   }
 
   async clickChatBtn (postUrl) {
-    await this.page.goto(postUrl, { waitUntil: 'domcontentloaded' })
+    await this.page.goto(postUrl, { waitUntil: 'networkidle0' })
     try {
       await this.page.waitForSelector('button#cookie-notice-ok-button')
       await this.page.click('button#cookie-notice-ok-button')
